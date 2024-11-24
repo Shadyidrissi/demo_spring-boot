@@ -1,5 +1,6 @@
 package com.test.demo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class StudService {
         Optional<Student> stude = this.studResp.findById(id);
         // Return the student if present, otherwise return null.
         return stude.orElse(null);  
+    }
+    public List<Student> getAllUser() {
+        // Fetch the student by ID (assuming 1 for the example).
+    	return this.studResp.findAll();
+           
     }
 }
