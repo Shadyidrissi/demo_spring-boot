@@ -37,4 +37,9 @@ public class StudService {
     public Student saveStudent(Student student) {
         return studResp.save(student);
     }
+    
+    // Delete a single student by ID
+    public void deleteStudent(Integer id) {
+         studResp.deleteById(id);
+    }
 }

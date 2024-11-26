@@ -54,4 +54,10 @@ public class StudContro {
     public ResponseEntity<Student> updateStudent(@Valid @RequestBody Student student) {
         return new ResponseEntity<>(studService.updateStudent(student), HttpStatus.OK);
     }
+    
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Student> deleteStudent(@PathVariable Integer id) {
+    	studService.deleteStudent(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
