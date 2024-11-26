@@ -9,22 +9,32 @@ import org.springframework.stereotype.Service;
 import com.test.demo.modules.Student;
 import com.test.demo.repository.StudResp;
 
-import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 
 @Service
 public class StudService {
+
     @Autowired
     private StudResp studResp;
 
+    // Get a single student by ID
     public Student getUser(Integer id) {
-        // Fetch the student by ID (assuming 1 for the example).
-        Optional<Student> stude = this.studResp.findById(id);
-        // Return the student if present, otherwise return null.
-        return stude.orElse(null);  
+        Optional<Student> student = studResp.findById(id);
+        return student.orElse(null); // Return the student or null if not found
     }
+
+    // Get all students
     public List<Student> getAllUser() {
-        // Fetch the student by ID (assuming 1 for the example).
-    	return this.studResp.findAll();
-           
+        return studResp.findAll(); // Fetch all student records
+    }
+
+    // Save or update a student
+    public Student updateStudent(Student student) {
+        return studResp.save(student); // Save and return the student record
+    }
+
+    // Add a new student
+    public Student saveStudent(Student student) {
+        return studResp.save(student);
     }
 }
