@@ -60,4 +60,10 @@ public class StudContro {
     	studService.deleteStudent(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    
+    @DeleteMapping("/delete")
+    public ResponseEntity<Student> deleteAllStudent() {
+    	studService.deleteAllStudent();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

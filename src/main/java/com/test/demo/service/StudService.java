@@ -42,4 +42,9 @@ public class StudService {
     public void deleteStudent(Integer id) {
          studResp.deleteById(id);
     }
+    
+ // Delete all student by ID
+    public void deleteAllStudent() {
+         studResp.deleteAll();
+    }
 }
